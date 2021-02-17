@@ -1,0 +1,45 @@
+@import '../../stylecomponents/partials/partials';
+
+.cardcontainer {
+    width: 80%;
+    margin-bottom: 2rem;
+    border: 1px solid #e8e8e8;
+    .cardcontent {
+        padding: 0;
+        .card_headbox {
+            @include flex_box(flex, column, center, center);
+            border-bottom: 1px solid #e8e8e8;
+            height: 4rem;
+            background: #f7f7f7;
+        }
+        .card_bodybox {
+            @include flex_box(flex, column, center, center);
+            background: #cbcbcb;
+            margin: 1.5rem 1.5rem .2rem 1.5rem;
+            height: 8rem;
+        }
+        .card_footerbox {
+            @include flex_box(flex, column, center, center)
+        }
+        .card_headtxt {
+            font-weight: 600;
+        }
+        .card_bodytxt {
+            color: #a1a1a1;
+        }
+    }
+    .btn_style_box {
+        @include flex_box(flex, column, center, center);
+        width: 100%;
+        margin: .5rem 1.5rem .5rem 1.5rem;
+        .addtocart {
+            @include flex_box(flex, row, space-between, center);
+            width: 100%;
+            .inputtxt {
+                width: 3rem;
+                padding: 0.5rem;
+                border: 1px solid gray;
+            }
+        }
+    }
+}

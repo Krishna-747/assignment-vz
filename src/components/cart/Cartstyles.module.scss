@@ -1,0 +1,30 @@
+@import '../../stylecomponents/partials/partials';
+
+.cartcontainer {
+    @include flex_box(flex, column, center, center);
+    .cartcontent {
+        @include flex_box(flex, column, center, center);
+        padding: 0;
+        width: 100%;
+        color: #fff;
+        .cart {
+            @include flex_box(flex, column, center, center);
+            border-bottom: 1px solid #be303f;
+            width: 100%;
+            height: 4rem;
+        }
+        .cart_total {
+            @include flex_box(flex, column, center, flex-start);
+            border-bottom: 1px solid #be303f;
+            width: 90%;
+            height: 5rem;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        .cart_items {
+            @include flex_box(flex, column, center, flex-start);
+            width: 80%;
+        }
+    }
+
+}

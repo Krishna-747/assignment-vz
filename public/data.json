@@ -1,0 +1,37 @@
+[
+    {
+        "item_name": "TV Set",
+        "item_cost": 300,
+        "name": "tv_set"
+    },
+    {
+        "item_name": "Game Console",
+        "item_cost": 200,
+        "name": "game_console"
+    },
+    {
+        "item_name": "Sofa",
+        "item_cost": 100,
+        "name":"sofa"
+    },
+    {
+        "item_name": "Icecream",
+        "item_cost": 5,
+        "name":"ice_cream"
+    },
+    {
+        "item_name": "Beer",
+        "item_cost": 3,
+        "name":"beer"
+    },
+    {
+        "item_name": "Phone",
+        "item_cost": 500,
+        "name":"phone"
+    },
+    {
+        "item_name": "Watch",
+        "item_cost": 30,
+        "name":"watch"
+    }
+]

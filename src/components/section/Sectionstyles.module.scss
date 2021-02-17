@@ -1,0 +1,5 @@
+@import '../../stylecomponents/partials/partials';
+
+.cardbox_container {
+    @include flex_box(flex, row, center, center)
+}
