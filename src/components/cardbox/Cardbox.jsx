@@ -1,14 +1,29 @@
-import { Card, CardContent, CardActions, Button, Box } from "@material-ui/core";
+import {
+  Card,
+  CardContent,
+  CardActions,
+  Button,
+  Box,
+  TextField,
+} from "@material-ui/core";
 import styles from "./Cardboxstyles.module.scss";
 
-const Cardbox = ({ card_data, card_value, onchange_value, onclick_value, index, item_details }) => {
+const Cardbox = ({
+  card_data,
+  card_value,
+  onchange_value,
+  onclick_value,
+  index,
+  item_details,
+  error
+}) => {
   const handleChange = (e) => {
     onchange_value(e.currentTarget.name, e.currentTarget.value);
   };
-  
-  const handleClick = (e, cost, item, index, action) => {
-    onclick_value(e, cost, item, index, action)
-  }
+
+  const handleClick = (e, cost, item, index, action) => { 
+    onclick_value(e, cost, item, index, action);
+  };
 
   return (
     <>
@@ -37,17 +52,48 @@ const Cardbox = ({ card_data, card_value, onchange_value, onclick_value, index, 
                   className={styles.inputtxt}
                   onChange={handleChange}
                 />
-                <Button
-                  size="large"
-                  style={{
-                    background: "#60acfc",
-                    textTransform: "capitalize",
-                    color: "#fff",
-                  }}
-                  onClick={() => handleClick(card_value[card_data.name], card_data.item_cost, card_data.name, index, 'add')}
-                >
-                  Add To Cart
-                </Button>
+                { card_value[card_data.name] <= 0 ? (
+                  <Button
+                    disabled
+                    size="large"
+                    style={{
+                      background: "#60acfc",
+                      textTransform: "capitalize",
+                      color: "#fff",
+                    }}
+                    onClick={() =>
+                      handleClick(
+                        card_value[card_data.name],
+                        card_data.item_cost,
+                        card_data.name,
+                        index,
+                        "add"
+                      )
+                    }
+                  >
+                    Add To Cart
+                  </Button>
+                ) : (
+                  <Button
+                    size="large"
+                    style={{
+                      background: "#097ffa",
+                      textTransform: "capitalize",
+                      color: "#fff",
+                    }}
+                    onClick={() =>
+                      handleClick(
+                        card_value[card_data.name],
+                        card_data.item_cost,
+                        card_data.name,
+                        index,
+                        "add"
+                      )
+                    }
+                  >
+                    Add To Cart
+                  </Button>
+                )}
               </Box>
             ) : (
               <Button
@@ -58,13 +104,22 @@ const Cardbox = ({ card_data, card_value, onchange_value, onclick_value, index, 
                   color: "#fff",
                   width: "100%",
                 }}
-                onClick={() => handleClick(card_value[card_data.name], card_data.item_cost, card_data.name, index, 'remove')}
+                onClick={() =>
+                  handleClick(
+                    card_value[card_data.name],
+                    card_data.item_cost,
+                    card_data.name,
+                    index,
+                    "remove"
+                  )
+                }
               >
                 Remove From Cart
               </Button>
             )}
           </Box>
         </CardActions>
+        {error && <div style={{ color: "red" }}>{error}</div>}
       </Card>
     </>
   );
